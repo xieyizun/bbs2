@@ -1,0 +1,15 @@
+<li>
+  <div class="panel panel-default">
+    <div class="panel-heading">commenter: <%= comment.user.name %></div>
+    <div class="panel-body">
+      <p><%= comment.content %></p>
+      <div id="time">
+        <% if current_user.id == comment.user.id %>
+          <span><%= link_to 'delete', comment, remote: true, method: :delete, confirm: 'Are you sure?' %></span>
+        <% end %>
+        <span id="comment"><%= link_to "response", "#" %></span>
+        <span><%= format_time(comment.created_at) %></span>
+      </div>
+    </div>
+  </div>
+</li>

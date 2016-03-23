@@ -1,0 +1,23 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#user {
+  width: 20%;
+  border: 1px solid white;
+  padding-top: 10px;
+  margin-right: 20px;
+  float: left;
+}
+#mypostlist {
+  width: 75%;
+  float: right;
+}
+
+#commit {
+<<<<<<< HEAD
+  margin-top: 5px;
+=======
+	margin-top: 5px;
+>>>>>>> 7e28554a5bd4e50ec596ffaa1858d6cb51051ba8
+}

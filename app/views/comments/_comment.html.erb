@@ -1,14 +1,37 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#response_input").hide();
+    $("#response").click(function() {
+      $("#response_input").toggle();
+    });
+  }); 
+</script>
+
 <li>
   <div class="panel panel-default">
     <div class="panel-heading">commenter: <%= comment.user.name %></div>
     <div class="panel-body">
+
+      <% if comment.parents.any? %>
+        <%= render comment.parents %>
+      <% end %>
+
       <p><%= comment.content %></p>
       <div id="time">
         <% if current_user.id == comment.user.id %>
           <span><%= link_to 'delete', comment, remote: true, method: :delete, confirm: 'Are you sure?' %></span>
         <% end %>
-        <span id="comment"><%= link_to "response", "#" %></span>
+        <button id="response">response</button>
         <span><%= format_time(comment.created_at) %></span>
+
+        <div id="response_input">
+          <%= form_for comment do |f| %>
+            <%= f.hidden_field :parent_id, value: comment.id %>
+            <%= f.text_area :content %>
+            <%= f.submit "response" %>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>

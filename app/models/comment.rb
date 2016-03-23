@@ -5,5 +5,8 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
+  has_many :relationships, foreign_key: "parent_id", dependent: :destroy
+  has_many :parents, through: :relationships
+
   default_scope{ order('created_at DESC') }
 end

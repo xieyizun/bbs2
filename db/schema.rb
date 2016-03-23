@@ -31,19 +31,14 @@ ActiveRecord::Schema.define(version: 20160323094159) do
     t.string   "remember_token2"
   end
 
-  add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
+  add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name",            limit: 20
     t.string   "email",           limit: 40
     t.string   "password_digest"
-<<<<<<< HEAD
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-=======
     t.datetime "created_at"
     t.datetime "updated_at"
->>>>>>> 7e28554a5bd4e50ec596ffaa1858d6cb51051ba8
     t.string   "remember_token"
   end
 

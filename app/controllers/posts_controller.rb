@@ -20,12 +20,8 @@ class PostsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     @post = Post.find_by_id(params[:id])
     @comment = Comment.new
-=======
-  	@post = Post.find_by_id(params[:id])
->>>>>>> 7e28554a5bd4e50ec596ffaa1858d6cb51051ba8
   end
 
   private
